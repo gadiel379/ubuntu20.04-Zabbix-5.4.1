@@ -96,22 +96,22 @@ DE ACUERDO A LA VERCIÓN ES LA RUTA DE PHP. (7.3) O (7.4)
 * Iniciara la creacion de las tablas.
 
 # 10 INICIE LOS PROCESOS DE SERVIDOR Y AGENTE DE ZABBIX, INICIE LOS PROCESOS  DEL SERVIDOR  Y AGENTE ZABBIX.
-* *sudo systemctl restart zabbix-server zabbix-agent apache2
-* *sudo systemctl enable zabbix-server
-* *sudo systemctl status zabbix-server
+* sudo systemctl restart zabbix-server zabbix-agent apache2
+* sudo systemctl enable zabbix-server
+* sudo systemctl status zabbix-server
 
 Ctrl+c para terminar proceso
 
 
 # 11 REINICIE EL SERVICIO DE APACHE2 Y VERIFIQUE EL ESTATUS
-* *sudo systemctl restart apache2
-* *sudo systemctl status apache2
+* sudo systemctl restart apache2
+* sudo systemctl status apache2
 
 Ctrl+c para terminar proceso
 
 
 # 12 PARA SABER LA DIRECCIÓN DEL EQUIPO ESCRIBA
-* *ifconfig
+* *ifconfig*
 
 #### DIRIGETE A LA SIGUIENTE RUTA PARA CONTINUAR CON LA INSTALACION DEL SERVIDOR ZABBIX.
 http: // servidor-ip / zabbix
