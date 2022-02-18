@@ -1,4 +1,4 @@
-###### Descargar el repositorio oficial de Zabbix de la siguiente ruta: https://github.com/gadiel379/raspberry-zabbix5.2/blob/main/zabbix-release_5.2-1%2Bdebian10_all.deb
+###### Descargar el repositorio oficial de Zabbix de la siguiente ruta: https://github.com/gadiel379/ubuntu20.04-zabbix5.2/blob/main/zabbix-release_5.2-1%2Bubuntu20.04_all.deb
  
  # PARA LA CONFIGURACION ES NECESARIO INSTALAR NANO
   * sudo apt install nano
@@ -9,35 +9,28 @@
   
  
 # 1 INSTALAR REPOSITORIO DE Zabbix
-* wget https://github.com/gadiel379/raspberry-zabbix5.2/blob/main/zabbix-release_5.2-1%2Bdebian10_all.deb
-* dpkg -i zabbix-release_5.2-1+debian10_all.deb
+* wget https://github.com/gadiel379/ubuntu20.04-zabbix5.2/blob/main/zabbix-release_5.2-1%2Bubuntu20.04_all.deb
+* dpkg -i zabbix-release_5.2-1+ubuntu20.04_all.deb
 * sudo apt update
- 
+
+ * Es nesesario ser usuario root para instalar estos pasasos # sudo su
  
 # 2 INSTALAR SERVIDOR ZABBIX, FRONTED, AGENTE
-* sudo apt install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-agent
+* apt install zabbix-server-pgsql zabbix-frontend-php php7.4-pgsql zabbix-apache-conf zabbix-agent
 
+* Es nesesario ser usuario root para instalar estos pasasos # sudo su
 
-# 3 INSTALAR EL SERVIDOR DE BASE DE DATOS MARIADB
-* sudo apt install mariadb-server
-* sudo mysql_secure_installation
-
- Le pedira actualaizar la contraseña de root pulse Y escriba la nueva contraseña
- En los pasos siguientes solo ponga: Y
+# 3 INSTALAR EL SERVIDOR DE BASE DE DATOS POSTGRESQL
+* sudo apt install postgresql  
   
-  
-# 4 CREE EL USUARIO Y LA BASE DE DATOS DE ZABBIX
-* sudo mysql -u root -p
+# 4 CREA BASE DE DATOS INICIAL
+* crear usuario:
+* # sudo -u postgres createuser --pwprompt zabbix
 
-CREE UN USUARIO Y UNA BASE DE DATOS DE ZABBIX COMO SE MUESTRA Y OTORGUE LOS PRIVILEGIOS
-AL USUARIO DE LA SIGUIENTE MANERA:
+* le pedira crear una contraseña y seguido le pedira que la confirme, la contraseña que se va a crear * es la contraseña de la base de datos.
 
-* CREATE DATABASE zabbix_db character set utf8 collate utf8_bin;
-* CREATE USER 'zabbix'@'localhost' IDENTIFIED BY 'zabbix';
-* GRANT ALL PRIVILEGES ON zabbix_db.* TO 'zabbix'@'localhost' WITH GRANT OPTION;
-* FLUSH PRIVILEGES;
-* quit;
-
+* crear base de datos:
+* # sudo -u postgres createdb -O zabbix zabbix
 
 # 5 INSTALAR Y CONFIGURA APACHE
  * sudo apt update
@@ -52,7 +45,7 @@ AL USUARIO DE LA SIGUIENTE MANERA:
 DIRIJASE AL DIRECTORIO DE CONFIGURACIÓN DE PHP Y EDITE EL /etc/php/7.4/apache2/php.ini 
 DE ACUERDO A LA VERCIÓN ES LA RUTA DE PHP. (7.3) O (7.4)
 
-* sudo nano /etc/php/7.3/apache2/php.ini   
+* sudo nano /etc/php/7.4/apache2/php.ini   
  
 ******************************************
 * DATOS A MEDIFICAR OPCIONALES:
@@ -88,7 +81,7 @@ DE ACUERDO A LA VERCIÓN ES LA RUTA DE PHP. (7.3) O (7.4)
 * DBName=zabbix_db
 * DBUser=zabbix
 
-* DESCOMENTAR PARA AGREGAR LA CONTRASEÑA DE LA BASE DE DATOS:
+* DESCOMENTAR PARA AGREGAR LA CONTRASEÑA DE LA BASE DE DATOS CREADA ANTERIOMENTE:
 * DBPassword=zabbix
 
 * comandos basicos de nano
@@ -98,9 +91,9 @@ DE ACUERDO A LA VERCIÓN ES LA RUTA DE PHP. (7.3) O (7.4)
 
 
 # 9 CARGAMOS EL ESQUEMA PREDETERMINADO DE LA BASE DE DATOS DE ZABBIX
-* zcat /usr/share/doc/zabbix-server-mysql*/create.sql.gz | mysql -uzabbix -p zabbix_db
+* # zcat /usr/share/doc/zabbix-server-pgsql*/create.sql.gz | sudo -u zabbix psql zabbix
 
-EL PROCESO TARDARA UNOS MINUTOS.
+* Iniciara la creacion de las tablas.
 
 # 10 INICIE LOS PROCESOS DE SERVIDOR Y AGENTE DE ZABBIX, INICIE LOS PROCESOS  DEL SERVIDOR  Y AGENTE ZABBIX.
 * sudo systemctl restart zabbix-server zabbix-agent apache2
@@ -118,7 +111,7 @@ Ctrl+c para terminar proceso
 
 
 # 12 PARA SABER LA DIRECCIÓN DEL EQUIPO ESCRIBA
-* IFCONFIG
+* # ifconfig
 
 #### DIRIGETE A LA SIGUIENTE RUTA PARA CONTINUAR CON LA INSTALACION DEL SERVIDOR ZABBIX.
 http: // servidor-ip / zabbix
