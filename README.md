@@ -1,11 +1,11 @@
 ###### Descargar el repositorio oficial de Zabbix de la siguiente ruta: https://github.com/gadiel379/ubuntu20.04-zabbix5.2/blob/main/zabbix-release_5.2-1%2Bubuntu20.04_all.deb
  
- # PARA LA CONFIGURACIóN ES NECESARIO INSTALAR NANO
+ # PARA LA CONFIGURACIÓN ES NECESARIO INSTALAR NANO
   * sudo apt install nano
  
-* *comandos basicos*
-* *Ctrl+w buscar*
-* *Ctrl+x salir*
+ *comandos basicos*
+ *Ctrl+w buscar*
+ *Ctrl+x salir*
   
  
 # 1 INSTALAR REPOSITORIO DE ZABBIX:
@@ -27,7 +27,7 @@
 * *crear usuario:*
 * sudo -u postgres createuser --pwprompt zabbix
 
-* *le pedira crear una contraseña y seguido le pedira que la confirme, la contraseña que se va a crear * es la contraseña de la base de datos.*
+* *le pedira crear una contraseña y seguido le pedira que la confirme, la contraseña que se va a crear, es la contraseña de la base de datos.*
 
 * *crear base de datos:*
 * sudo -u postgres createdb -O zabbix zabbix
@@ -48,7 +48,7 @@
 * sudo nano /etc/php/7.4/apache2/php.ini   
  
 ******************************************
-* *DATOS A MEDIFICAR OPCIONALES:*
+* *DATOS A MODIFICAR OPCIONALES:*
 * memory_limit 256M
 * upload_max_filesize 16M
 * post_max_size 16M
@@ -76,7 +76,7 @@
 * sudo nano /etc/zabbix/zabbix_server.conf
  
 *********************************************************************************************
-* *LOS DATOS A CAMBIAR SON LOS SIGUIENTES, DE ACUIERDO A LA BASE DE DATOS Y USUARIO CREADOS:*
+* *LOS DATOS A CAMBIAR SON LOS SIGUIENTES, DE ACUERDO A LA BASE DE DATOS Y USUARIO CREADOS:*
 * DBHost=localhost
 * DBName=zabbix_db
 * DBUser=zabbix
@@ -84,9 +84,9 @@
 * *DESCOMENTAR PARA AGREGAR LA CONTRASEÑA DE LA BASE DE DATOS CREADA ANTERIOMENTE:*
 * DBPassword=zabbix
 
-* *comandos basicos de nano*
-* *Ctrl+x salir*
-* *pedira guardar los datos, damos enter.*
+*comandos basicos de nano*
+*Ctrl+x salir*
+*pedira guardar los datos, damos enter.*
 *********************************************************************************************
 
 
