@@ -25,12 +25,12 @@
   
 # 4 CREA BASE DE DATOS INICIAL
 * crear usuario:
-* # sudo -u postgres createuser --pwprompt zabbix
+* sudo -u postgres createuser --pwprompt zabbix
 
 * le pedira crear una contraseña y seguido le pedira que la confirme, la contraseña que se va a crear * es la contraseña de la base de datos.
 
 * crear base de datos:
-* # sudo -u postgres createdb -O zabbix zabbix
+* sudo -u postgres createdb -O zabbix zabbix
 
 # 5 INSTALAR Y CONFIGURA APACHE
  * sudo apt update
@@ -91,27 +91,27 @@ DE ACUERDO A LA VERCIÓN ES LA RUTA DE PHP. (7.3) O (7.4)
 
 
 # 9 CARGAMOS EL ESQUEMA PREDETERMINADO DE LA BASE DE DATOS DE ZABBIX
-* # zcat /usr/share/doc/zabbix-server-pgsql*/create.sql.gz | sudo -u zabbix psql zabbix
+* zcat /usr/share/doc/zabbix-server-pgsql*/create.sql.gz | sudo -u zabbix psql zabbix
 
 * Iniciara la creacion de las tablas.
 
 # 10 INICIE LOS PROCESOS DE SERVIDOR Y AGENTE DE ZABBIX, INICIE LOS PROCESOS  DEL SERVIDOR  Y AGENTE ZABBIX.
-* sudo systemctl restart zabbix-server zabbix-agent apache2
-* sudo systemctl enable zabbix-server
-* sudo systemctl status zabbix-server
+* *sudo systemctl restart zabbix-server zabbix-agent apache2
+* *sudo systemctl enable zabbix-server
+* *sudo systemctl status zabbix-server
 
 Ctrl+c para terminar proceso
 
 
 # 11 REINICIE EL SERVICIO DE APACHE2 Y VERIFIQUE EL ESTATUS
-* sudo systemctl restart apache2
-* sudo systemctl status apache2
+* *sudo systemctl restart apache2
+* *sudo systemctl status apache2
 
 Ctrl+c para terminar proceso
 
 
 # 12 PARA SABER LA DIRECCIÓN DEL EQUIPO ESCRIBA
-* # ifconfig
+* *ifconfig
 
 #### DIRIGETE A LA SIGUIENTE RUTA PARA CONTINUAR CON LA INSTALACION DEL SERVIDOR ZABBIX.
 http: // servidor-ip / zabbix
