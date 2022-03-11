@@ -9,14 +9,14 @@
   
  
 # 1 INSTALAR REPOSITORIO DE ZABBIX:
-* wget https://github.com/gadiel379/ubuntu20.04-zabbix5.2/blob/main/zabbix-release_5.2-1%2Bubuntu20.04_all.deb
-* dpkg -i zabbix-release_5.2-1+ubuntu20.04_all.deb
+* wget https://repo.zabbix.com/zabbix/5.4/raspbian/pool/main/z/zabbix-release/zabbix-release_5.4-1+debian11_all.deb
+* dpkg -i zabbix-release_5.4-1+debian11_all.deb
 * sudo apt update
 
  * *Es nesesario ser usuario root para instalar estos pasasos # sudo su*
  
 # 2 INSTALAR SERVIDOR ZABBIX, FRONTED, AGENTE:
-* apt install zabbix-server-pgsql zabbix-frontend-php php7.4-pgsql zabbix-apache-conf zabbix-agent
+* apt install zabbix-server-pgsql zabbix-frontend-php php7.4-pgsql zabbix-apache-conf zabbix-sql-scripts zabbix-agent
 
 * *Es nesesario ser usuario root para instalar estos pasasos # sudo su*
 
@@ -91,7 +91,7 @@
 
 
 # 9 CARGAMOS EL ESQUEMA PREDETERMINADO DE LA BASE DE DATOS DE ZABBIX:
-* zcat /usr/share/doc/zabbix-server-pgsql*/create.sql.gz | sudo -u zabbix psql zabbix
+* zcat /usr/share/doc/zabbix-sql-scripts/postgresql/create.sql.gz | sudo -u zabbix psql zabbix
 
 * *Iniciara la creacion de las tablas.*
 
