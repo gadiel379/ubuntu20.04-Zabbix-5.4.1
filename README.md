@@ -1,4 +1,4 @@
-###### Descargar el repositorio oficial de Zabbix de la siguiente ruta: https://github.com/gadiel379/ubuntu20.04-zabbix5.2/blob/main/zabbix-release_5.2-1%2Bubuntu20.04_all.deb
+###### Descargar el repositorio oficial de Zabbix de la siguiente ruta:
  
  # PARA LA CONFIGURACIÓN ES NECESARIO INSTALAR NANO
   * sudo apt install nano
@@ -9,8 +9,8 @@
   
  
 # 1 INSTALAR REPOSITORIO DE ZABBIX:
-* wget https://repo.zabbix.com/zabbix/5.4/ubuntu-arm64/pool/main/z/zabbix-release/zabbix-release_5.4-1+ubuntu20.04_all.deb
-* dpkg -i zabbix-release_5.4-1+ubuntu20.04_all.deb
+* wget https://repo.zabbix.com/zabbix/5.4/ubuntu/pool/main/z/zabbix-release/zabbix-release_5.4-1+ubuntu20.04_all.deb
+* sudo dpkg -i zabbix-release_5.4-1+ubuntu20.04_all.deb
 * sudo apt update
 
  * *Es nesesario ser usuario root para instalar estos pasasos # sudo su*
