@@ -1,5 +1,5 @@
-###### Descargar el repositorio oficial de Zabbix de la siguiente ruta:
- 
+###### Descargar el repositorio oficial de Zabbix de la siguiente ruta: https://repo.zabbix.com/zabbix/5.4/ubuntu/pool/main/z/zabbix-release/zabbix-release_5.4-1+ubuntu20.04_all.deb
+
  # PARA LA CONFIGURACIÓN ES NECESARIO INSTALAR NANO
   * sudo apt install nano
  
