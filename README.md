@@ -6,9 +6,12 @@
  *comandos basicos*
  *Ctrl+w buscar*
  *Ctrl+x salir*
+ 
+ 
   
  
 # 1 INSTALAR REPOSITORIO DE ZABBIX:
+* apt update ; apt upgrade -y ; apt autoremove -y
 * wget https://repo.zabbix.com/zabbix/5.4/ubuntu/pool/main/z/zabbix-release/zabbix-release_5.4-1+ubuntu20.04_all.deb
 * sudo dpkg -i zabbix-release_5.4-1+ubuntu20.04_all.deb
 * sudo apt update
